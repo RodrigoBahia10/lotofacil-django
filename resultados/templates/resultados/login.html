@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; color: #333; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 30px; width: 300px; }
+        h1 { color: #092e20; text-align: center; }
+        form { display: flex; flex-direction: column; }
+        label { margin-top: 10px; }
+        input { padding: 8px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px; background-color: #44b78b; color: white; border: none; cursor: pointer; }
+        .errorlist { color: #dc3545; list-style: none; padding: 0; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
