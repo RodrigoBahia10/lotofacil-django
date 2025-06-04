@@ -14,10 +14,17 @@
         .dezenas { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }
         .dezena { background-color: #44b78b; color: white; border-radius: 50%; width: 45px; height: 45px; display: flex; justify-content: center; align-items: center; font-size: 1.1em; font-weight: bold; }
         .error { color: #dc3545; font-weight: bold; }
+        .auth-link { margin-top: 20px; }
     </style>
 </head>
 <body>
     <div class="card">
+        {% if user.is_authenticated %}
+            <p class="auth-link"><a href="{% url 'resultados:logout' %}">Sair</a></p>
+        {% else %}
+            <p class="auth-link"><a href="{% url 'resultados:login' %}">Entrar</a></p>
+        {% endif %}
+
         {% if concurso and concurso.numero %}
             <h1>Resultado da Lotofácil</h1>
             <div class="info">

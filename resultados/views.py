@@ -1,10 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # resultados/views.py
 
 import requests
-from django.shortcuts import render
 
 # URL da API da Caixa para os resultados da Lotofácil
 URL_API_LOTOFACIL = "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil/"
@@ -24,6 +24,7 @@ def buscar_ultimo_resultado():
         print(f"Erro ao buscar dados da API: {e}")
         return None
 
+@login_required
 def pagina_inicial(request):
     """
     Esta é a view para a nossa página inicial.
